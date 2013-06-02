@@ -20,5 +20,6 @@ local.properties
 .project
 
 # Idea files
-.iml
+gen-external-apklibs/
+*.iml
 .idea/
