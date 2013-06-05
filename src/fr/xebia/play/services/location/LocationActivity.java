@@ -66,17 +66,15 @@ public class LocationActivity extends BaseFragmentActivity implements
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        mLocationClient.connect();
-        mActivityRecognitionClient.connect();
-    }
-
-    @Override
     protected void onResume() {
         super.onResume();
-        if (!playServicesConnected()) {
-            Toast.makeText(this, "Fatal error", Toast.LENGTH_LONG).show();
+        if (playServicesConnected()) {
+            if(!mLocationClient.isConnected()){
+               mLocationClient.connect();
+            }
+            if(!mActivityRecognitionClient.isConnected()){
+                mActivityRecognitionClient.connect();
+            }
         }
     }
 

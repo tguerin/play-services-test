@@ -18,7 +18,6 @@ public class BaseFragmentActivity extends FragmentActivity {
             Dialog errorDialog = GooglePlayServicesUtil.getErrorDialog(resultCode, this, CONNECTION_FAILURE_REQUEST);
             if (errorDialog != null) {
                 new ErrorDialogFragment(errorDialog).show(getSupportFragmentManager(), "Connection failure");
-                return true;
             }
         }
         return isConnected;
